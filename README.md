@@ -7,6 +7,8 @@
 
 This repository demonstrates a production-grade MLOps workflow for traditional machine learning, using fraud detection as a real-world use case. The project covers experiment tracking, model registry, automated deployment, and scalable serving.
 
+📄 **[View the Full Project Report](./docs/FinalReport_ChinSekYi.pdf)** - Comprehensive documentation of the project's architecture, methodology, results, and insights.
+
 ---
 
 ## Architecture Diagram
@@ -88,4 +90,3 @@ This project demonstrates MLOps for traditional machine learning using a real-wo
 
 - Dataset: [Kaggle: Synthetic Financial Datasets For Fraud Detection (PaySim)](https://www.kaggle.com/datasets/ealaxi/paysim1)
 - The dataset simulates mobile money transactions, including both normal and fraudulent activity, with features such as transaction type, amount, and account balances.# mlops-fraud-detection-system
-# mlops-fraud-detection-system
