@@ -92,4 +92,4 @@ mlops-fyp/
 This project demonstrates MLOps for traditional machine learning using a real-world fraud detection scenario. The goal is to identify fraudulent transactions from the PaySim synthetic financial dataset, helping financial institutions reduce losses and improve security.
 
 - Dataset: [Kaggle: Synthetic Financial Datasets For Fraud Detection (PaySim)](https://www.kaggle.com/datasets/ealaxi/paysim1)
-- The dataset simulates mobile money transactions, including both normal and fraudulent activity, with features such as transaction type, amount, and account balances.# mlops-fraud-detection-system
+- The dataset simulates mobile money transactions, including both normal and fraudulent activity, with features such as transaction type, amount, and account balances.
