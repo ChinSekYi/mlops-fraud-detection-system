@@ -29,10 +29,14 @@ __pycache__/
 !/docs/images/
 !/docs/User_Guide/
 !/docs/Developer_Guide/
+!/docs/FinalReport_ChinSekYi.pdf
+!/docs/README.md
 /docs/*
 !/docs/images/
 !/docs/User_Guide/
 !/docs/Developer_Guide/
+!/docs/FinalReport_ChinSekYi.pdf
+!/docs/README.md
 /archive
 
 # MLflow tracking and artifacts
