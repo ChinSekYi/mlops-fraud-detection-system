@@ -1,0 +1,43 @@
+# Ignore everything in data/ except .dvc files
+data/processed/
+data/raw/*
+!data/raw/*.dvc
+
+# Python cache
+/src/components/__pycache__/
+__pycache__/
+**/__pycache__/
+*.pyc
+
+# macOS system files
+.DS_Store
+
+# Environment files (all .env variants except CI)
+/env/*
+!/env/.env.ci
+!/env/.env.machine.example
+!/env/.env.mlflow.example
+
+# Environment files (all .env variants except CI)
+/env/*
+!/env/.env.ci
+!/env/.env.machine.example
+!/env/.env.mlflow.example
+
+# Folders
+/docs/*
+!/docs/images/
+!/docs/User_Guide/
+!/docs/Developer_Guide/
+/docs/*
+!/docs/images/
+!/docs/User_Guide/
+!/docs/Developer_Guide/
+/archive
+
+# MLflow tracking and artifacts
+/mlruns
+/mlartifacts
+/logs
+/artifacts
+/repo-backup.git

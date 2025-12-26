@@ -1,0 +1,80 @@
+name: CI - pipeline
+
+on:
+  push:
+    branches: [ "dev"]
+  pull_request:
+    branches: [ "staging", "main" ]
+
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+
+    env:
+      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      AWS_DEFAULT_REGION: ${{ secrets.AWS_REGION }}
+      AWS_S3_BUCKET_CI: ${{ secrets.AWS_S3_BUCKET_CI }}
+
+    services:
+      postgres:
+        image: postgres:15
+        env:
+          POSTGRES_USER: mlflow
+          POSTGRES_PASSWORD: mlflow
+          POSTGRES_DB: mlflowdb
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd="pg_isready -U mlflow -d mlflowdb"
+          --health-interval=10s
+          --health-timeout=5s
+          --health-retries=5
+
+      mlflow:
+        image: sychin0606/mlflow-server:latest
+        ports:
+          - 5050:5050
+        env:
+          DB_USER: mlflow
+          DB_PASSWORD: mlflow
+          DB_NAME: mlflowdb
+          DB_PORT: 5432
+          REAL_DB_ENDPOINT: postgres
+          MLFLOW_S3_BUCKET: ${{ secrets.AWS_S3_BUCKET_CI }}
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_DEFAULT_REGION: ${{ secrets.AWS_REGION }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.11"
+     
+      - name: Install DVC with S3 support and requirements
+        run: |
+          pip install dvc[s3]==3.2.2
+          pip install -r requirements/ci.txt
+
+      - name: Load environment variables
+        run: |
+          cat env/.env.ci >> $GITHUB_ENV
+          echo "" >> $GITHUB_ENV
+          echo "ENV_FILE=.env.ci" >> $GITHUB_ENV
+
+      - name: Configure DVC remote and pull dataset
+        run: |
+          dvc remote modify storage url s3://${{ secrets.AWS_S3_BUCKET_CI }}
+          dvc pull -r storage data/raw/$DATASET_NAME
+
+      - name: Run quality checks
+        run: make check
+
+      - name: Run pipeline
+        run: make run-pipeline
+
+      - name: Run pytest
+        run: make test-pipeline-ci

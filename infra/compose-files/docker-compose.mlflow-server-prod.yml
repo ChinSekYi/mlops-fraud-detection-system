@@ -1,0 +1,20 @@
+# Only use this in EC2 mlflow-server-prod
+# set .env.mlflow_prod as .env
+services:
+    mlflow-server:
+      image: sychin0606/mlflow-server:latest
+      platform: linux/amd64
+      container_name: mlflow-server
+      ports:
+        - "5050:5050"   
+      environment:
+        MLFLOW_HOST: 0.0.0.0
+        MLFLOW_PORT: 5050
+      env_file:
+        - .env.mlflow_prod
+
+
+# docker compose -f infra/docker/docker-compose.mlflow-server-prod.yml up
+
+## In mlflow-server-prod
+# docker compose -f docker-compose.mlflow-server-prod.yml up

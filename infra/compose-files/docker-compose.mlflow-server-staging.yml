@@ -1,0 +1,20 @@
+# Only use this in EC2 mlflow-server-staging
+# set .env.mlflow_stag as .env
+services:
+    mlflow-server:
+      image: sychin0606/mlflow-server:latest
+      platform: linux/amd64
+      container_name: mlflow-server
+      ports:
+        - "5050:5050"   
+      environment:
+        MLFLOW_HOST: 0.0.0.0
+        MLFLOW_PORT: 5050
+      env_file:
+        - .env.mlflow_stag
+
+
+# docker compose -f infra/docker/docker-compose.mlflow-server-staging.yml up
+
+## In mlflow-server-staging
+# docker compose -f docker-compose.mlflow-server-staging.yml up

@@ -1,0 +1,51 @@
+# for local development
+# spins up mlflow, api and frontend containers
+services:
+    mlflow:
+      image: sychin0606/mlflow-server:latest
+      platform: linux/amd64
+      container_name: mlflow-server
+      ports:
+        - "5050:5050"   
+      environment:
+        MLFLOW_HOST: 0.0.0.0
+        MLFLOW_PORT: 5050
+      env_file:
+        - ../../env/.env
+      networks:
+        - mlops-network
+
+    backend:
+      image: sychin0606/backend:latest
+      platform: linux/amd64
+      container_name: backend-con
+      ports:
+        - "8000:8000"
+      environment:
+        MLFLOW_TRACKING_URI: http://mlflow-server:5050
+      env_file:
+        - ../../env/.env
+      networks:
+        - mlops-network
+      depends_on:
+        - mlflow
+
+    frontend:
+      image: sychin0606/frontend:latest
+      platform: linux/amd64
+      container_name: frontend-con
+      ports:
+        - "8501:8501"
+      environment:
+        MODEL_SERVER_IP: http://backend-con:8000
+      networks:
+        - mlops-network
+      depends_on:
+        - backend
+
+networks:
+  mlops-network:
+    driver: bridge
+
+# docker compose -f infra/docker/docker-compose.all.yml up
+
