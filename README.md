@@ -9,6 +9,8 @@ This repository demonstrates a production-grade MLOps workflow for traditional m
 
 📄 **[View the Full Project Report](./docs/FinalReport_ChinSekYi.pdf)** - Comprehensive documentation of the project's architecture, methodology, results, and insights.
 
+> **⚠️ Note:** This is a public copy of the project. The CI/CD badges above link to the original private repository where the automated pipelines are fully configured and operational. To set up CI/CD for this repository, refer to the documentation in `/docs/Developer_Guide/github-actions-secrets.md`.
+
 ---
 
 ## Architecture Diagram
@@ -74,12 +76,13 @@ mlops-fyp/
 - Automated CI/CD pipeline with GitHub Actions and Docker
 
 ## Quickstart
-1. Clone the repo and set up your environment (see `/docs/Developer_Guide/backend-frontend-machine-setup.md` and `/docs/Developer_Guide/data-management.md`).
-2. Build and manage Docker images (see `/docs/Developer_Guide/docker-setup.md`).
-3. Set up MLflow tracking server (see `/docs/Developer_Guide/mlflow-tracking-server-setup.md`).
-4. Reference CI/CD secrets (see `/docs/Developer_Guide/github-actions-secrets.md`).
-5. Run the pipeline and serve models (see `/docs/User_Guide/model-experimentation-guide.md` and `/docs/User_Guide/model-serving-guide.md`).
-6. For detailed setup, troubleshooting, and deployment, see the [Documentation folder](./docs/README.md).
+1. Clone the repo and set up your environment (see [`docs/Developer_Guide/backend-frontend-machine-setup.md`](./docs/Developer_Guide/backend-frontend-machine-setup.md) and [`docs/Developer_Guide/data-management.md`](./docs/Developer_Guide/data-management.md)).
+2. Build and manage Docker images (see [`docs/Developer_Guide/docker-setup.md`](./docs/Developer_Guide/docker-setup.md)).
+3. Set up MLflow tracking server (see [`docs/Developer_Guide/mlflow-tracking-server-setup.md`](./docs/Developer_Guide/mlflow-tracking-server-setup.md)).
+4. Configure Git and SSH (see [`docs/Developer_Guide/git-ssh-setup.md`](./docs/Developer_Guide/git-ssh-setup.md)).
+5. Set up CI/CD secrets if needed (see [`docs/Developer_Guide/github-actions-secrets.md`](./docs/Developer_Guide/github-actions-secrets.md)).
+6. Run experiments and serve models (see [`docs/User_Guide/model-experimentation-guide.md`](./docs/User_Guide/model-experimentation-guide.md) and [`docs/User_Guide/model-serving-guide.md`](./docs/User_Guide/model-serving-guide.md)).
+7. For a complete overview, see the [Documentation Index](./docs/README.md).
 
 ## Recommended Reading Order
 1. Developer Guide (setup, environment, Docker, MLflow, SSH, secrets)
