@@ -1,4 +1,4 @@
-# MLOps for Traditional ML
+# MLOps for Fraud Detection
 **A Full-Stack Fraud Detection Pipeline (NUS DSA4288 Honours Year Project)**
 
 [![Docker Image CI](https://github.com/ChinSekYi/mlops-fyp/actions/workflows/ci.yml/badge.svg)](https://github.com/ChinSekYi/mlops-fyp/actions/workflows/ci.yml)
