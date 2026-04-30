@@ -25,7 +25,7 @@ This project demonstrates MLOps for traditional machine learning using a real-wo
 
 ---
 <p align="center">
-  <a href="./docs/FinalReport_ChinSekYi.pdf"><b>📄 View Project Report</b></a> &nbsp;&nbsp; | &nbsp;&nbsp; <a href="./docs/Final_Presentation_Slides.pptx"><b>📊 View Presentation Slides</b></a>
+  <a href="./docs/FinalReport_ChinSekYi.pdf"><b>📄 View Project Report</b></a> &nbsp;&nbsp; | &nbsp;&nbsp; <a href="./docs/Final_Presentation.pdf"><b>📊 View Presentation Slides</b></a>
 </p>
 
 ---
