@@ -41,7 +41,7 @@ This project demonstrates MLOps for traditional machine learning using a real-wo
 
 ---
 ## Demo videos
-| Demo 1: Data Scientist’s Development workflow | Demo 2: Model Promotion Workflow across Dev->Staging->Prod|
+| Demo 1: Data Scientist’s Development workflow | Demo 2: Model Promotion Workflow across Dev > Staging > Prod|
 | :---: | :---: |
 | <video src="https://github.com/user-attachments/assets/fe8c50fe-f72e-4e9b-8175-0fcdb15ebf6a" width="100%"></video> | <video src="https://github.com/user-attachments/assets/36370f12-9d37-4e70-9e5c-b8707ffd7e3f" width="100%"></video> |
 
